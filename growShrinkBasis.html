@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex-grow</title>
+    <style>
+        body {
+            font-family: Monospace, Sans-serif;
+            margin: 0;
+            padding: 0;
+            min-width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .flex-exemplo {
+            background: rgb(211, 211, 211);
+            border-radius: 10px;
+            padding: 15px;
+            width: 90%;
+            margin: 10px;
+            
+        }
+        .flex-container {
+            background: rgb(131, 142, 151);
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            box-sizing: border-box;
+            max-width: 500px;
+        }
+        .item {
+            padding: 10px;
+            box-sizing: border-box;
+            background: yellow;
+            min-width: 50px;
+        }
+        .item:nth-child(even) {
+            background: cyan;
+        }
+        #flex0 .item {
+            border: 2px solid black; 
+        }
+        #flex1 .item {
+            flex-grow: 1; /*padrão*/
+            border: 2px solid black; 
+        }
+        #flex2 .item {
+            flex-grow: 0.25; /*reduz*/
+            border: 2px solid black;
+        }
+        #flex3 .item {
+            flex-grow: 5; /*aumenta*/
+            border: 2px solid black;
+        }
+        #flex4 .item {
+            flex-shrink: 1; /*padrão*/
+            border: 2px solid black; 
+        }
+        #flex5 .item {
+            flex-shrink: 0.1;
+            border: 2px solid black;
+        }
+        #flex6 .item {
+            flex-shrink: 0.01; 
+            border: 2px solid black; 
+        }
+        #flex4 .flex-container, #flex5 .flex-container, #flex6 .flex-container {
+            max-width: 300px; /*limite de largura para forçar o item caber dentro da div*/
+        }
+        #flex7 .item {
+            flex-basis: 1; /*padrão*/
+            border: 2px solid black;
+        }
+        #flex8 .item {
+            flex-basis: 20%;
+            border: 2px solid black;
+        }
+        #flex9 .item {
+            flex-basis: 5;
+            border: 2px solid black;
+        }
+        #flex10 .item {
+            flex: 1 1 1; /*padrão*/
+            border: 2px solid black;
+        }
+        #flex11 .item {
+            flex: 2 1 10%;
+            border: 2px solid black;
+        }
+        #flex12 .item {
+            flex: 0.5 3 3em;
+            border: 2px solid black;
+        }
+        .letra-vermelha {
+            color: red; 
+        }
+    </style>
+</head>
+<body>
+    <!--0-->
+    <div class="flex-exemplo">
+        <h1>.flex-container { display: flex; }</h1>
+        <div class="flex-container" id="flex0">
+            <div class="item">item 1</div>
+            <div class="item">item 2</div>
+            <div class="item">item 3</div>
+        </div>
+    </div>
+    <!--1-->
+    <div class="flex-exemplo">
+        <h1>.item { <span class="letra-vermelha">flex-grow</span>: 1; }</h1>
+        <div class="flex-container" id="flex1">
+            <div class="item">item 1</div>
+            <div class="item">item 2</div>
+            <div class="item">item 3</div>
+        </div>
+    </div>
+    <!--2-->
+    <div class="flex-exemplo">
+        <h1>.item { <span class="letra-vermelha">flex-grow</span>: 0.25; }</h1>
+        <div class="flex-container" id="flex2">
+            <div class="item">item 1</div>
+            <div class="item">item 2</div>
+            <div class="item">item 3</div>
+        </div>
+    </div>
+    <!--3-->
+    <div class="flex-exemplo">
+        <h1>.item { <span class="letra-vermelha">flex-grow</span>: 5; }</h1>
+        <div class="flex-container" id="flex3">
+            <div class="item">item 1</div>
+            <div class="item">item 2</div>
+            <div class="item">item 3</div>
+        </div>
+    </div>
+    <!--4-->
+    <div class="flex-exemplo">
+        <h1>.item { <span class="letra-vermelha">flex-shrink</span>: 1; }</h1>
+        <div class="flex-container" id="flex4">
+            <div class="item">item 1</div>
+            <div class="item">item 2</div>
+            <div class="item">item 3</div>
+            <div class="item">item 4</div>
+            <div class="item">item 5</div>
+            <div class="item">item 6</div>
+            <div class="item">item 7</div>
+            <div class="item">item 8</div>
+            <div class="item">item 9</div>
+        </div>
+    </div>
+    <!--5-->
+    <div class="flex-exemplo">
+        <h1>.item { <span class="letra-vermelha">flex-shrink</span>: 0.1; }</h1>
+        <div class="flex-container" id="flex5">
+            <div class="item">item 1</div>
+            <div class="item">item 2</div>
+            <div class="item">item 3</div>
+            <div class="item">item 4</div>
+            <div class="item">item 5</div>
+            <div class="item">item 6</div>
+            <div class="item">item 7</div>
+            <div class="item">item 8</div>
+            <div class="item">item 9</div>
+        </div>
+    </div>
+    <!--6-->
+    <div class="flex-exemplo">
+        <h1>.item { <span class="letra-vermelha">flex-shrink</span>: 0.01; }</h1>
+        <div class="flex-container" id="flex6">
+            <div class="item">item 1</div>
+            <div class="item">item 2</div>
+            <div class="item">item 3</div>
+            <div class="item">item 4</div>
+            <div class="item">item 5</div>
+            <div class="item">item 6</div>
+            <div class="item">item 7</div>
+            <div class="item">item 8</div>
+            <div class="item">item 9</div>
+        </div>
+    </div>
+    <!--7-->
+    <div class="flex-exemplo">
+        <h1>.item { <span class="letra-vermelha">flex-basis</span>: 1; }</h1>
+        <div class="flex-container" id="flex7">
+            <div class="item">item 1</div>
+            <div class="item">item 2</div>
+            <div class="item">item 3</div>
+        </div>
+    </div>
+    <!--8-->
+    <div class="flex-exemplo">
+        <h1>.item { <span class="letra-vermelha">flex-basis</span>: 20%; }</h1>
+        <div class="flex-container" id="flex8">
+            <div class="item">item 1</div>
+            <div class="item">item 2</div>
+            <div class="item">item 3</div>
+        </div>
+    </div>
+    <!--9-->
+    <div class="flex-exemplo">
+        <h1>.item { <span class="letra-vermelha">flex-basis</span>: 5px; }</h1>
+        <div class="flex-container" id="flex9">
+            <div class="item">item 1</div>
+            <div class="item">item 2</div>
+            <div class="item">item 3</div>
+        </div>
+    </div>
+    <h1>{flex: 1, 1, 1;} equivale a:<br>{flex-grow: 1, flex-shrink: 1 e flex-basis: 1}</h1>
+    <!--10-->
+    <div class="flex-exemplo">
+        <h1>.item { <span class="letra-vermelha">flex</span>: 1 1 1; }</h1>
+        <div class="flex-container" id="flex10">
+            <div class="item">item 1</div>
+            <div class="item">item 2</div>
+            <div class="item">item 3</div>
+        </div>
+    </div>
+    <!--11-->
+<div class="flex-exemplo">
+    <h2>
+        <span class="letra-vermelha">flex</span>: diferentes em cada item: <br>
+        .item1 {flex: 1 1 10%;}<br>
+        .item2 {flex: 2 1 15%;}<br>
+        .item3 {flex: 3 1 20%;}
+    </h2>
+    <div class="flex-container" id="flex11">
+        <div class="item" style="flex: 1 1 10%;">item 1</div>
+        <div class="item" style="flex: 2 1 15%;">item 2</div>
+        <div class="item" style="flex: 3 1 20%;">item 3</div>
+    </div>
+</div>
+<!--12-->
+<div class="flex-exemplo">
+    <h2>
+        <span class="letra-vermelha">flex</span>: diferentes em cada item: <br>
+        .item1 {flex: 0.5 3 3em;}<br>
+        .item2 {flex: 1 2 4em;}<br>
+        .item3 {flex: 1.5 1 5em;}
+    </h2>
+    <div class="flex-container" id="flex12">
+        <div class="item" style="flex: 0.5 3 3em;">item 1</div>
+        <div class="item" style="flex: 1 2 4em;">item 2</div>
+        <div class="item" style="flex: 1.5 1 5em;">item 3</div>
+    </div>
+</div>
+</body>
+</html>
